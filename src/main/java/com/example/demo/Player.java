@@ -107,4 +107,8 @@ public class Player
     {
         this.injury = injury;
     }
+    public void printPlayer()
+    {
+        System.out.println(name+"\t"+playerID+"\t"+jersey);
+    }
 }

@@ -14,24 +14,55 @@ public class Fteam
         fteam= new Player[size];
         this.size=size;
     }
-    public void addPlayer(int playerID)//adds player to the team using the player ID. Player data would be gathered by database here// assumes that playerID is a valid id in the database
+    public boolean addPlayer(int playerID)//adds player to the team using the player ID. Player data would be gathered by database here// assumes that playerID is a valid id in the database
     {
-        int i=0;
-        for (Player p : fteam)
+        int i=0;//counter for which index of fteam we are on
+        for (Player p : fteam)//increments through each player p in fteam
         {
-            if (p.getPlayerID() != playerID && p.getPlayerID()==-1)
+            if (p==null)//if there is no player at this index
             {
-                fteam[i]=new Player(playerID);
-                system.print.out("Player has been added the team");
-                return;
+                fteam[i] = new Player(playerID);
+                System.out.println("Player with playerID of:" +playerID+" has been added the team");
+                return true;
             }
             else if(p.getPlayerID()==playerID)
             {
-                system.print.out("Player is already on the team");
-                return;
+                System.out.println("Player is already on the team");
+                return false;
             }
             i++;
         }
-        system.out.print("No room for the player on the team");
+        System.out.println("No room for the player on the team");
+        return false;
+    }
+    public boolean removePlayer(int playerID)
+    {
+        int i=0;
+        for (Player p: fteam)
+        {
+            if(p!=null && p.getPlayerID()==playerID)
+            {
+                fteam[i] = null;
+                System.out.println("Player with playerID of "+playerID+" has been removed");
+                return true;
+            }
+            i++;
+        }
+        System.out.println("Player with playerID of "+playerID+" is not on the team to remove");
+        return false;
+    }
+    public Player[] getFteam()
+    {
+        return fteam;
+    }
+    public void printTeam()
+    {
+        for(Player p : fteam)
+        {
+            if(p!=null)
+            {
+                p.printPlayer();
+            }
+        }
     }
 }
