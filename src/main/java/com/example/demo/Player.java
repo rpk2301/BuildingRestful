@@ -59,34 +59,34 @@ public class Player
         this.position = 0;
         this.injury = 0;
     }
-    public double getScore()//returns player score
+    public double getScore()//returns player score as double
     {
         return score;
     }
-    public String getName() //returns player name
+    public String getName() //returns player name as String
     {
         return name;
     }
-    public int getJersey() //returns player jersey
+    public int getJersey() //returns player jersey as int
     {
         return jersey;
     }
-    public int getPosition()//returns player position
+    public int getPosition()//returns player position as int
     {
         return position;
     }
-    public String getTeam() //returns player team
+    public String getTeam() //returns player team as String
     {
         return team;
     }
-    public int getPlayerID() //returns playerID
+    public int getPlayerID() //returns playerID as int
     {
         return playerID;
     }
     public int getInjury()
     {
         return injury;
-    }
+    }//returns injury as int
     public void setScore(double score)//sets/updates players score
     {
         this.score = score;
@@ -106,8 +106,40 @@ public class Player
     public void setInjury(int injury)
     {
         this.injury = injury;
+    }//sets injury once it changes after being constructed
+    private String printInjury()
+    {
+        if (injury==0)
+        {
+            return "Healthy";
+        }
+        else if (injury==1)
+        {
+            return "Questionable";
+        }
+        else if (injury==2)
+        {
+            return "Doubtful";
+        }
+        else if (injury==3)
+        {
+            return "Out";
+        }
+        else if (injury==4)
+        {
+            return "IR";
+        }
+        else if (injury==5)
+        {
+            return "PUP";
+        }
+        else if (injury==6)
+        {
+            return "Suspended";
+        }
+        return "ruh roh";
     }
-    private String convertPosition()
+    private String printPosition()//converts the position from int to string for easier reading
     {
         if (position==0)
         {
@@ -117,10 +149,42 @@ public class Player
         {
             return "QB";
         }
+        else if (position==2)
+        {
+            return "RB";
+        }
+        else if (position==3)
+        {
+            return "WR";
+        }
+        else if (position==4)
+        {
+            return "TE";
+        }
+        else if (position==5)
+        {
+            return "K";
+        }
+        else if (position==6)
+        {
+            return "D/ST";
+        }
+        else if (position==7)
+        {
+            return "LB";
+        }
+        else if (position==8)
+        {
+            return "DL";
+        }
+        else if (position==9)
+        {
+            return "DB";
+        }
         return "ruh roh";
     }
-    public void printPlayer()
+    public void printPlayer()//prints player
     {
-        System.out.println(name+"\tPosition:"+position+"\tJersey number:"+jersey+"\tTeam:"+team+"\tPlayerID:"+playerID+"\tInjury status:"+injury+"\tScore:"+score);
+        System.out.println("Name:"+name+"\tPosition:"+printPosition()+"\tJersey number:"+jersey+"\tTeam:"+team+"\tPlayerID:"+playerID+"\tInjury status:"+printInjury()+"\tScore:"+score);
     }
 }

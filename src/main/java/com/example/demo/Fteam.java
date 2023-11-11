@@ -56,7 +56,7 @@ public class Fteam
     System.out.println("No room for the player on the team");
     return false;
     }
-    public boolean removePlayer(int playerID)
+    public boolean removePlayer(int playerID)//removes player from fteam if playerID can be found
     {
         int i=0;
         for (Player p: fteam)
@@ -64,7 +64,7 @@ public class Fteam
             if(p!=null && p.getPlayerID()==playerID)
             {
                 fteam[i] = null;
-                System.out.println("Player with playerID of "+playerID+" has been removed");
+                System.out.println("Player with playerID of:"+playerID+" has been removed");
                 return true;
             }
             i++;
@@ -75,8 +75,8 @@ public class Fteam
     public Player[] getFteam()
     {
         return fteam;
-    }
-    public void printTeam()
+    }//returns fteam
+    public void printTeam()//prints the team
     {
         for(Player p : fteam)
         {
@@ -85,5 +85,17 @@ public class Fteam
                 p.printPlayer();
             }
         }
+    }
+    public double getScore()//Returns team total score
+    {
+        double totalScore=0;
+        for (Player p : fteam)
+        {
+            if(p!=null)
+            {
+                totalScore+=p.getScore();
+            }
+        }
+        return totalScore;
     }
 }
