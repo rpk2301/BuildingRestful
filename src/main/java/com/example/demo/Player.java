@@ -107,8 +107,20 @@ public class Player
     {
         this.injury = injury;
     }
+    private String convertPosition()
+    {
+        if (position==0)
+        {
+            return "Test pos";
+        }
+        else if (position==1)
+        {
+            return "QB";
+        }
+        return "ruh roh";
+    }
     public void printPlayer()
     {
-        System.out.println(name+"\t"+playerID+"\t"+jersey);
+        System.out.println(name+"\tPosition:"+position+"\tJersey number:"+jersey+"\tTeam:"+team+"\tPlayerID:"+playerID+"\tInjury status:"+injury+"\tScore:"+score);
     }
 }

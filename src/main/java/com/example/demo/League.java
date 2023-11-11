@@ -7,20 +7,13 @@ public class League
         size =5;
         Fteam team1= new Fteam(size);
         team1.printTeam();
-        for (int i=0;i<size;i++)
-        {
-            team1.addPlayer(i);
-        }
+        team1.addPlayer(15964);
+        Player toAdd = new Player(25.8, "Kirk Cousins",15964,8,"Vikings",1,4);
+        team1.addPlayer(toAdd);
         team1.printTeam();
-        for (int i=0;i<size+1;i=i+2)
-        {
-            team1.removePlayer(i);
-        }
+        team1.removePlayer(15964);
         team1.printTeam();
-        for (int i=0;i<size;i++)
-        {
-            team1.addPlayer(i);
-        }
+        team1.addPlayer(toAdd);
         team1.printTeam();
     }
 }
